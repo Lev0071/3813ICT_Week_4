@@ -7,6 +7,13 @@ import { LoginComponent } from './login/login.component';
 import { AccountComponent } from './account/account.component';
 import { HeaderComponent } from './header/header.component';
 import { FormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
+
+const appRoutes:Routes = [
+  {   path: 'login', component: LoginComponent },
+  {   path: 'account', component: AccountComponent },
+  {   path: '', component: HeaderComponent }
+];
 
 @NgModule({
   declarations: [
@@ -18,7 +25,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
