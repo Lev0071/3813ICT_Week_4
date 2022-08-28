@@ -1,4 +1,15 @@
 # Week4tut
+# Workshop 4
+
+### Install Instruction
+The following steps show how to push a local repository to the remote repository
+```sh
+git clone https://github.com/Lev0071/3813ICT_Week_4.git
+npm install
+ng serve
+```
+
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.6.
 
