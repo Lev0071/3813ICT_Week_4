@@ -45,16 +45,20 @@ export class LoginComponent implements OnInit {
     // console.log(this.username);
     // console.log(this.password);
     this.users.forEach((element)=>{
+      console.log(element);
+      
       if(element.name == f.value.username && element.password == f.value.pass){
         //this.userSelected.emit(element);
+        const current = new User(element.id,element.name,element.description,element.imagePath);
+        this.currentUser = current;
+        if(this.currentUser){
+          this.hasCurrentUser = true;
+          this.loginFail = false;
+        }else{
+          this.loginFail = true
+          this.hasCurrentUser = false;
+        }
         this.loginService.userSelected.emit(element);
-        const currentUser = new User(element.id,element.name,element.description,element.imagePath);
-        this.currentUser = currentUser;
-        this.hasCurrentUser = true;
-        this.loginFail = false
-      }else{
-        this.loginFail = true
-        this.hasCurrentUser = false;
       }
     });
     console.log(this.hasCurrentUser);
