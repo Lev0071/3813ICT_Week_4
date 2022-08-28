@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { User } from '../model/user.model';
 import { LoginService } from './login.service';
 // import { NgForm } from '@angular/forms'
@@ -23,7 +24,8 @@ export class LoginComponent implements OnInit {
 
   users:User[]
 
-  constructor(private loginService:LoginService) { }
+  constructor(private loginService:LoginService,
+              private router:Router) { }
 
   ngOnInit(): void {
     this.users = this.loginService.getUsers();
@@ -59,6 +61,10 @@ export class LoginComponent implements OnInit {
           this.hasCurrentUser = false;
         }
         this.loginService.userSelected.emit(element);
+        this.router.navigate(['/account/'+element.id]);
+      }else{
+        this.loginFail = true
+        this.hasCurrentUser = false;
       }
     });
     console.log(this.hasCurrentUser);

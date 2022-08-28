@@ -12,7 +12,8 @@ import { RouterModule, Routes } from '@angular/router';
 const appRoutes:Routes = [
   {   path: 'login', component: LoginComponent },
   {   path: 'account', component: AccountComponent },
-  {   path: '', component: HeaderComponent }
+  {   path: '', component: HeaderComponent },
+  {   path: 'account/:id', component: AccountComponent }
 ];
 
 @NgModule({
